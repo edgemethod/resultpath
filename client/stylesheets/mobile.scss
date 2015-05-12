@@ -72,7 +72,7 @@
 
   .ui.header.top-title {
     font-size:1.8rem;
-
+    padding-top: 0.5rem;
     .right.floated {
       margin-top: 0.25rem!important;
     }
@@ -82,10 +82,23 @@
 
   /* mobile show page */
   .column.top-title-column {
+    margin-top: 0;
+
     padding-bottom:0;
+    .button {
+      padding:0;
+      margin:0;
+    }
   }
   .column.top-actions {
     padding-bottom: 0rem!important;
+    margin:0;
+    padding:0;
+    .button {
+      margin-top: 0;;
+      margin-bottom: 0;;
+    }
+
   }
 
 }
