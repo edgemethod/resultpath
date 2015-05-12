@@ -1,0 +1,36 @@
+<template name="_comment">
+
+  {{#if notFirst}}<div class="ui divider"></div>{{/if}}
+  <div class="comment">
+
+    <a class="avatar">
+      {{#with author}}
+        {{> _google_avatar }}
+      {{/with}}
+    </a>
+    <div class="content">
+
+      <a class="author">{{#with author}}{{profile.name}}{{/with}}</a>
+      <div class="metadata">
+        <div class="date">{{datePosted}}</div>
+      </div>
+
+      <div class="text">
+        <div class="ui mini label  top right attached agrees" data-action="{{#if alreadyLiked }}unlike{{else}}like{{/if}}" >
+
+          <i class="check icon"></i>
+          {{#if alreadyLiked }}
+          {{else}}
+          Agree
+          {{/if}}
+
+          {{#if this.numberOfLikes}}{{this.numberOfLikes}}{{/if}}
+        </div>
+
+        {{body}}
+      </div>
+    </div>
+  </div>
+
+
+</template>

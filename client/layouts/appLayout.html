@@ -1,0 +1,74 @@
+<template name="appLayout">
+
+    <section class="ui grid stackable centered" id="primary-nav">
+
+      <div class="fourteen wide column" >
+
+        <section class="ui grid stackable" >
+
+            <div class="three wide column left aligned " id="branding-nav">
+
+                <img src="/images/resultpath-white.png" height="28">
+
+
+            </div>
+
+
+
+            <div class="ten wide column center aligned" id="center-nav">
+
+                <div class="ui secondary menu inverted">
+                  <a class="item {{#if routeStatusIs 'proposed'}}active{{/if}}" href="/changes/proposed">
+                    <i class="idea icon"></i>
+                    Proposed
+                  </a>
+                  <a class="item {{#if routeStatusIs 'in-progress'}}active{{/if}}" href="/changes/in-progress">
+                    <i class="wrench icon"></i>
+                    In Progress
+                  </a>
+                  <a class="item {{#if routeStatusIs 'evaluating'}}active{{/if}}" href="/changes/evaluating">
+                    <i class="line chart icon"></i>
+                    Evaluating
+                  </a>
+                </div>
+
+            </div>
+
+
+            {{#with me}}
+
+              <div class="three wide column right aligned" id="user-nav">
+
+                <div class="ui secondary menu inverted">
+                  <div class="item basic ui dropdown top pointing">
+                      {{profile.name}}
+                    <i class="dropdown icon"></i>
+                    <div class="ui menu user-dropdown">
+                      <a class="item sign-out">Sign Out</a>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            {{/with}}
+
+
+        </section>
+
+      </div>
+
+
+
+    </section>
+
+
+
+
+  <div class="ui stackable centered grid main-content">
+
+    {{> yield}}
+
+  </div>
+
+
+</template>

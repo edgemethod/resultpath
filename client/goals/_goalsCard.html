@@ -1,0 +1,138 @@
+<template name="_goalsCard">
+        <div class="ui fluid card" >
+          <div class="content">
+            <div class="right floated">
+
+
+
+
+              <div class="ui small compact top pointing dropdown icon {{statusColor}} goal-settings">
+                  <i class="setting icon"></i>
+
+                  <div class="menu">
+                    <div class="header">
+                      Actions
+                    </div>
+                    <a class="item">
+                      <i class="write icon"></i>
+                      Edit
+                    </a>
+                    <a class="item">
+                      <i class="trash icon"></i>
+
+                      Delete
+                    </a>
+
+                  </div>
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="header">{{title}}</div>
+            <div class="meta">
+              <div class="date">
+              {{datePosted}}
+              </div>
+            </div>
+            <div class="description">
+              <p>{{description}}</p>
+            </div>
+
+          </div>
+
+          {{#if results.length}}
+
+          <div class="extra content secondary time-log-list">
+
+              <div class="ui small very relaxed divided list">
+                {{#each results}}
+                <div class="item">
+
+
+                      <div class="ui left floated" style="margin-right:0.25rem">
+
+                      {{#with author}}{{> _google_avatar }}{{/with}}
+                    </div>
+
+                  <div class="content">
+
+                    <div class="header">
+
+                      <div class="ui tiny right floated statistic">
+                        <div class="value">{{value}}</div>
+                      </div>
+
+                      {{description}}
+
+                    </div>
+                    <div class="description">{{datePosted}}</div>
+
+                  </div>
+
+              </div>
+
+                {{/each}}
+              </div>
+            </div>
+
+            {{/if}}
+            <div class="extra content tertiary">
+              <div class="description">
+                {{resultsCount}} Results Logged
+
+
+                <div class="ui tiny button basic green compact add-time top right floated dropdown bottom right pointing">
+
+                    <i class="plus icon"></i>
+                    Add
+                    <div class="ui menu">
+                      <div class="header">
+                        <i class="plus icon"></i>
+                        Add a New Result
+                      </div>
+                      <div class="ui mini labeled input results">
+                        <div class="ui mini label">Description</div>
+                        <input type="text" size="40" class="description">
+                        &nbsp;
+                        <div class="ui mini label">Value</div>
+                        <input type="text" size="3" class="value" placeholder="Number">
+                        &nbsp;
+                        <button class="ui input button compact green" data-action="add-result">ADD</button>
+                      </div>
+                    </div>
+                </div>
+
+
+
+              </div>
+
+
+          </div>
+
+        </div>
+</template>
+
+
+<template name="_goalsBlank">
+
+  <div class="ui fluid card" style="opacity:0.9">
+    <div class="content">
+
+      <div class="header">No Goals</div>
+      <div class="description">
+        Create goals to record results and track progress.
+      </div>
+    </div>
+    <div class="extra content secondary">
+
+        {{> _add_goal}}
+
+    </div>
+  </div>
+
+
+</template>

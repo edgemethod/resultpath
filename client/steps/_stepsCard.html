@@ -1,0 +1,130 @@
+<template name="_stepsCard">
+        <div class="ui fluid card" >
+          <div class="content">
+            <div class="right floated status">
+
+
+
+
+              <div class="ui small compact top pointing dropdown icon {{statusColor}} step-status">
+                {{> _status_dropdown}}
+              </div>
+
+
+            </div>
+
+
+
+            <div class="header">{{title}}</div>
+            <div class="meta">
+              <span class="category">
+
+
+              <div class="ui top left pointing dropdown icon {{statusColor}} ">
+                    {{#if estimatedHours}}
+                      Estimated: {{estimatedHours}}h
+                    {{else}}
+                      Unestimated
+                      <i class="caret down icon"></i>
+
+                    {{/if}}
+
+                    <div class="menu">
+                      <div class="header">
+                        <i class="write icon"></i>
+                        Set the estimated time
+                      </div>
+                      <div class="ui mini right labeled left icon input hours">
+                        <i class="time icon"></i>
+                        <input type="text" size="2">
+                        <div class="ui label mini">hours</div>
+                        &nbsp;
+                        <button class="ui input button compact primary" data-action="set-estimated-hours">
+                          SET
+                        </button>
+                      </div>
+                    </div>
+                </div>
+
+
+
+              </span>
+            </div>
+            <div class="description">
+              <p>{{description}}</p>
+            </div>
+
+          </div>
+
+          {{#if activities.length}}
+
+          <div class="extra content secondary time-log-list">
+
+              <div class="ui small relaxed divided list">
+                {{#each activities}}
+                  <div class="item">
+                        <div class="ui left floated" style="margin-right:0.25rem">
+
+                        {{#with author}}{{> _google_avatar }}{{/with}}
+                      </div>
+
+                    <div class="content">
+
+                      <div class="header">
+
+                        <div class="ui tiny right floated label">
+                          {{value}}h
+                        </div>
+
+                        {{description}}
+
+                      </div>
+                      <div class="description">{{datePosted}}</div>
+
+
+
+                    </div>
+
+
+                  </div>
+
+
+                {{/each}}
+              </div>
+            </div>
+
+            {{/if}}
+            <div class="extra content tertiary">
+              <div class="description">
+                 {{totalHours}} {{activityCount}} entries
+
+
+
+                <div class="ui tiny button basic green compact add-time top right floated dropdown top right pointing">
+                    <i class="plus icon"></i>
+                    Log Activity
+                    <div class="menu inverted">
+                      <div class="header">
+                        <i class="plus icon"></i>
+                        Add Activity
+                      </div>
+                      <div class="ui mini labeled input activity">
+                        <div class="ui label mini">Description</div>
+                        <input type="text" size="20" class="description">
+                        <div class="ui label mini">Hours</div>
+                        <input type="text" size="2" class="value">
+                        &nbsp;
+                        <button class="ui input button compact green" data-action="add-activity">ADD</button>
+                      </div>
+                    </div>
+                </div>
+
+
+
+              </div>
+
+
+          </div>
+
+        </div>
+</template>

@@ -1,0 +1,81 @@
+<template name="afArrayField_steps">
+
+
+    {{#if afFieldIsInvalid name=this.atts.name}}
+      <div class="ui form error">
+        <div class="error message">{{{afFieldMessage name=this.atts.name}}}</div>
+      </div>
+    {{/if}}
+    {{#afEachArrayItem name=this.atts.name minCount=this.atts.minCount maxCount=this.atts.maxCount}}
+      <div class="autoform-array-item steps-item">
+
+          <div class="ui input segment" >
+            <div class="fields">
+              {{> afQuickField name=this.name label=false options=afOptionsFromSchema errorsInLabel=true}}
+              <div class="field one wide column">
+            {{#if afArrayFieldHasMoreThanMinimum name=../atts.name minCount=../atts.minCount maxCount=../atts.maxCount}}
+              <div class="ui small red corner label autoform-remove-item">
+                <i class="icon trash"></i>
+              </div>
+            {{else}}
+              &nbsp;
+            {{/if}}
+              </div>
+
+            </div>
+          </div>
+
+      </div>
+    {{/afEachArrayItem}}
+    {{#if afArrayFieldHasLessThanMaximum name=this.atts.name minCount=this.atts.minCount maxCount=this.atts.maxCount}}
+          <div class="ui small icon button basic autoform-add-item" data-autoform-field="{{this.atts.name}}" data-autoform-minCount="{{this.atts.minCount}}" data-autoform-maxCount="{{this.atts.maxCount}}">
+            <i class="icon plus"></i>
+
+            Add Action Item
+          </div>
+    {{/if}}
+
+
+</template>
+
+<template name="afObjectField_steps">
+  <div class="fields">
+
+      <div class="eleven wide field">
+        <label>Action Item</label>
+        {{> afFieldInput name=title }}
+      </div>
+      <div class="five wide field">
+        <label>Estimate</label>
+        {{> afFieldInput name=estimatedHours placeholder="Hours"}}
+      </div>
+      <div class="sixteen wide field">
+        <label>Description</label>
+        {{> afFieldInput name=description }}
+      </div>
+
+      {{> afArrayField name=activities template="results"}}
+
+
+  </div>
+
+</template>
+
+
+<template name="afObjectField_results">
+  <div class="fields">
+
+      <div class="eleven wide field">
+        <label>Description</label>
+        {{> afFieldInput name=description }}
+      </div>
+      <div class="five wide field">
+        <label>Value</label>
+        {{> afFieldInput name=value }}
+      </div>
+        {{> afFieldInput name=userId type="hidden" }}
+        {{> afFieldInput name=createdAt type="hidden" }}
+
+  </div>
+
+</template>

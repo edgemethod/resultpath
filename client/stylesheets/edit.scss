@@ -1,0 +1,37 @@
+.actions-edit, .results-edit, .comments-edit {
+
+
+
+  .autoform-add-item { display:none;  }
+
+  .ui.block.header {
+    border-color: #eee;
+    font-weight: 300;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-radius: 0.15rem;
+  }
+  .ui.secondary.bottom.attached.segment {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 0.25rem;
+  }
+
+
+
+  > .ui.top.attached.block.header {
+     display:none;
+  }
+
+
+  > .ui.secondary.bottom.attached.segment {
+    border: 0;
+    padding:0!important;
+    > .ui.secondary.bottom.attached.segment {
+      padding: 0.5rem;
+    }
+  }
+
+
+
+}

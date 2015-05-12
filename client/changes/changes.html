@@ -1,0 +1,87 @@
+<template name="changes">
+
+          <div class="fourteen wide column">
+
+            <h1 class="ui basic header top-title">
+              <a href="/changes/new" class="ui button compact primary right floated">
+                <i class="plus icon"></i>
+                Add Idea
+              </a>
+              {{status}}
+            </h1>
+
+            <div class="ui section divider"></div>
+
+
+            {{#if this.count }}
+
+            <div class="ui three column stackable grid">
+
+
+                {{#each this }}
+                  {{> _changesItem }}
+                {{/each}}
+
+            </div>
+            {{else}}
+              <div class="ui segment secondary">
+                <b>Hi {{me.profile.given_name}},</b>
+                {{#if routeNameIs 'changes.proposed' }}
+
+                  It doesn't look like there are any ideas here yet.
+                  <br/>
+                  <br/>
+                  <strong>
+                    <a href="/changes/new">Submit the first!</a>
+                  </strong>
+                {{else}}
+                  No ideas have reached this status yet.  Submit one and everything should happen in due time.
+
+
+                {{/if}}
+
+              </div>
+
+            {{/if}}
+
+          </div>
+
+</template>
+
+<template name="_changesItem">
+
+
+  <div class="column equal height ">
+    <a class="ui fluid card changes-index-item" href="/change/{{_id}}">
+      {{#with imageObject}}
+
+      <div class="image">
+        <img src="{{url}}">
+      </div>
+      {{/with}}
+      <div class="content">
+        <div class="header">
+        <div class="meta">
+            <span class="url">{{url}}</span>
+          </div>
+        </div>
+        <div class="description">{{title}}</div>
+      </div>
+      <div class="extra content">
+        <span class="right floated">
+          <div class="ui label tag mini">{{status}}</div>
+        </span>
+        <small>
+          <strong>
+          <i class="comment icon"></i>
+          {{#if comments.length}}{{comments.length}}{{else}}No{{/if}} Comments
+          </strong>
+        </small>
+      </div>
+    </a>
+  </div>
+
+
+
+
+</template>

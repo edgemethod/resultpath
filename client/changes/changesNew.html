@@ -1,0 +1,63 @@
+<template name="changesNew">
+
+
+    <div class="fourteen wide column">
+
+    <h1 class="ui basic header top-title">
+      <button type="button" class="ui button compact green right floated disabled">Use Browser</button>
+        {{title}}
+    </h1>
+
+      <div class="ui section divider"></div>
+
+      {{# autoForm collection="Changes" id='changesNewForm' type="insert" class="new-form row"}}
+
+
+            <div class="ui fields">
+              <div class="field eight wide column">
+                {{> afQuickField name='url' class=""}}
+              </div>
+              <div class="field eight wide column">
+                {{> afQuickField name='title' }}
+              </div>
+            </div>
+            <div class="ui fields">
+
+              <div class="field eight wide column">
+                <div class="ui accordion">
+                  <div class="title">
+                    <i class="dropdown icon"></i>
+                    Add a screenshot or other image?
+                  </div>
+                  <div class="content">
+                    {{> afQuickField name='image' label=false }}
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="field eight wide column">
+                <div class="ui accordion">
+                  <div class="title">
+                    <i class="dropdown icon"></i>
+                    Add more details?
+                  </div>
+                  <div class="content">
+                    {{> afQuickField name='details' label=false }}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+      <div class="ui section divider mobile only"></div>
+
+
+      <button type="submit" class="ui button compact primary">Submit Idea</button>
+      {{/autoForm}}
+
+
+  </div>
+
+
+
+</template>

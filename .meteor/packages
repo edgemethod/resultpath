@@ -1,0 +1,43 @@
+# Meteor packages used by this project, one per line.
+# Check this file (and the other files in this directory) into your repository.
+#
+# 'meteor add' and 'meteor remove' will edit this file for you,
+# but you can also edit it by hand.
+
+meteor-platform
+iron:router
+flemay:less-autoprefixer
+semantic:ui-menu
+semantic:ui-button
+semantic:ui-icon
+semantic:ui-grid
+semantic:ui-segment
+semantic:ui-list
+semantic:ui-dropdown
+semantic:ui-transition
+aldeed:autoform
+aldeed:collection2
+dburles:collection-helpers
+matb33:collection-hooks
+fabienb4:autoform-semantic-ui
+semantic:ui-reset
+useraccounts:semantic-ui
+accounts-google
+service-configuration
+reywood:publish-composite
+cfs:filesystem
+cfs:standard-packages
+particle4dev:sass
+semantic:ui-card
+semantic:ui-popup
+semantic:ui-item
+semantic:ui-label
+semantic:ui-image
+semantic:ui-form
+semantic:ui-input
+semantic:ui-divider
+semantic:ui-header
+yogiben:autoform-file
+momentjs:moment
+semantic:ui-tab
+semantic:ui-statistic
