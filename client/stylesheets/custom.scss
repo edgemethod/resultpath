@@ -7,11 +7,17 @@ body {
   background: #1d1d1d!important;
   font-weight: 300;
   .item {
+    font-family: "Uni Sans";
+    //text-transform: uppercase;
     letter-spacing: 0.025rem;
+    margin-top: -.125rem;
     &.active {
       font-weight: 300;
     }
+
+    font-size: 1.125rem;
   }
+
 }
 
 #primary-nav {
