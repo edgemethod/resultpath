@@ -1,5 +1,9 @@
+/*
+  DO NOT MODIFY - This file has been generated and will be regenerated
+  Semantic UI v1.12.1
+*/
 /*!
- * # Semantic UI 1.12.2 - Site
+ * # Semantic UI - Site
  * http://github.com/semantic-org/semantic-ui/
  *
  *

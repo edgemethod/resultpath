@@ -8,7 +8,6 @@ meteor-platform
 iron:router
 flemay:less-autoprefixer
 semantic:ui-menu
-semantic:ui-button
 semantic:ui-icon
 semantic:ui-grid
 semantic:ui-segment
@@ -41,5 +40,5 @@ yogiben:autoform-file
 momentjs:moment
 semantic:ui-tab
 semantic:ui-statistic
-semantic:ui-modal
 semantic:ui-dimmer
+semantic:ui
