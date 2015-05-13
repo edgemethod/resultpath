@@ -34,6 +34,14 @@ Template.changesShow.rendered = function() {
 Template.changesShow.helpers({
   details: function() {
     if (this.details) return this.details.replace("\n", "<br/><br/>");
+  },
+  activeTab: function(compareAgainst) {
+    if (compareAgainst == 'actions') {
+      if (this.status == 'proposed' || this.status == 'in-progress') return 'active';
+    } else if (compareAgainst == 'results') {
+      if (this.status != 'proposed' && this.status != 'in-progress') return 'active';
+
+    }
   }
 });
 
