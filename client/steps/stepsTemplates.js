@@ -106,10 +106,10 @@ Template._stepsCard.helpers({
     else return "No"
   },
   statusIsNot: function(compareTo) {
-    if (this.status != compareTo) return 'active';
+    return (this.status != compareTo)
   },
   showLog: function() {
-    return (Session.get('showLog') == this._id)
+    return (Session.get('showLog') == this._id || this.status != 'complete')
   },
   statusColor: function() {
     switch(this.status) {
