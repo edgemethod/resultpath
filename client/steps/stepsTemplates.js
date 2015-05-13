@@ -33,6 +33,10 @@ Template._stepsCard.events({
           $set: data
         }, {}, function() {
 
+          setTimeout(function() {
+            Template._stepsCard.rendered();
+          },1000)
+
         });
 
     }
@@ -57,8 +61,9 @@ Template._stepsCard.events({
     }
   },
   'click [data-action=show-log]': function (event, template) {
-    console.log(this._id)
     Session.set("showLog", this._id)
+
+
   },
   'click [data-action=hide-log]': function (event, template) {
     Session.set("showLog", null)
