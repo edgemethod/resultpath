@@ -56,7 +56,7 @@ Template._stepsCard.events({
     var $modal = $(event.target).siblings('.add-activity-modal');
     var $index = this.index;
 
-    $(".add-activity-modal").modal({
+    $modal.modal({
       detachable: false,
       onApprove: function() {
 

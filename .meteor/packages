@@ -22,3 +22,4 @@ particle4dev:sass
 yogiben:autoform-file
 momentjs:moment
 semantic:ui
+cfs:gridfs
