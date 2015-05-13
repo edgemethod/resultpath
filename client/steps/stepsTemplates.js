@@ -53,7 +53,7 @@ Template._stepsCard.events({
     Session.set("showLog", null)
   },
   'click .log-activity': function (event, template) {
-    var $modal = $('.add-activity-modal');
+    var $modal = $(event.target).siblings('.add-activity-modal');
     var $index = this.index;
 
     $(".add-activity-modal").modal({
