@@ -16,6 +16,8 @@
 
 
             <div class="header">{{title}}</div>
+            {{#if statusIsNot 'complete' and doNotShowLog }}
+
             <div class="meta">
               <span class="category">
 
@@ -50,48 +52,56 @@
 
               </span>
             </div>
+
+            {{/if}}
+
             <div class="description">
               <p>{{description}}</p>
             </div>
 
           </div>
 
-          {{#if activities.length}}
+          {{#if showLog or statusIsNot 'complete' }}
 
-          <div class="extra content secondary time-log-list">
 
-              <div class="ui small relaxed divided list">
-                {{#each activities}}
-                  <div class="item">
-                        <div class="ui left floated" style="margin-right:0.25rem">
+            {{#if activities.length}}
 
-                        {{#with author}}{{> _google_avatar }}{{/with}}
-                      </div>
+            <div class="extra content secondary time-log-list">
 
-                    <div class="content">
+                <div class="ui small relaxed divided list">
+                  {{#each activities}}
+                    <div class="item">
+                          <div class="ui left floated" style="margin-right:0.25rem">
 
-                      <div class="header">
-
-                        <div class="ui tiny right floated label">
-                          {{value}}h
+                          {{#with author}}{{> _google_avatar }}{{/with}}
                         </div>
 
-                        {{description}}
+                      <div class="content">
+
+                        <div class="header">
+
+                          <div class="ui tiny right floated label">
+                            {{value}}h
+                          </div>
+
+                          {{description}}
+
+                        </div>
+                        <div class="description">{{datePosted}}</div>
+
+
 
                       </div>
-                      <div class="description">{{datePosted}}</div>
-
 
 
                     </div>
 
 
-                  </div>
-
-
-                {{/each}}
+                  {{/each}}
+                </div>
               </div>
-            </div>
+
+              {{/if}}
 
             {{/if}}
             <div class="extra content tertiary">
@@ -99,7 +109,7 @@
                  {{totalHours}} {{activityCount}} entries
 
 
-
+                {{#if statusIsNot 'complete' }}
                 <div class="ui tiny button basic green compact add-time top right floated dropdown top right pointing">
                     <i class="plus icon"></i>
                     Log Activity
@@ -118,6 +128,21 @@
                       </div>
                     </div>
                 </div>
+                {{else}}
+                  {{#if showLog }}
+                  <div class="ui tiny button basic orange compact right floated show-activity" data-action="hide-log">
+                      Hide Log
+                      <i class="caret up icon"></i>
+                  </div>
+
+                  {{else}}
+                  <div class="ui tiny button basic orange compact right floated show-activity" data-action="show-log">
+                      Show Log
+                      <i class="caret up icon"></i>
+                  </div>
+                  {{/if}}
+
+                {{/if}}
 
 
 

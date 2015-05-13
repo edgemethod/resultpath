@@ -146,7 +146,7 @@ StepsSchema = new SimpleSchema({
       if (this.isSet) {
         return;
       } else {
-        return 'Unassigned'
+        return 'unassigned'
       }
     },
     autoform: {
@@ -405,7 +405,7 @@ Changes.attachSchema(new SimpleSchema({
         return;
       }
       if (this.isInsert) {
-        return 'Proposed'
+        return 'proposed'
       } else {
         this.unset();
       }

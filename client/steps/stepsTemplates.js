@@ -56,10 +56,18 @@ Template._stepsCard.events({
 
     }
   },
+  'click [data-action=show-log]': function (event, template) {
+    console.log(this._id)
+    Session.set("showLog", this._id)
+  },
+  'click [data-action=hide-log]': function (event, template) {
+    Session.set("showLog", null)
+  },
 
 });
 
 Template._add_step.events({
+
   'click [data-action=add-step]': function (event, template) {
     event.preventDefault();
 
@@ -97,15 +105,24 @@ Template._stepsCard.helpers({
     if (this.activities && this.activities.length > 0) return this.activities.length;
     else return "No"
   },
+  statusIsNot: function(compareTo) {
+    if (this.status != compareTo) return 'active';
+  },
+  showLog: function() {
+    return (Session.get('showLog') == this._id)
+  },
   statusColor: function() {
     switch(this.status) {
-      case 'Unassigned':
+      case 'unassigned':
         return 'basic';
           break;
-      case 'In Progress':
+      case 'in-progress':
         return 'blue';
           break;
-      case 'Completed':
+      case 'started':
+        return 'blue';
+          break;
+      case 'complete':
         return 'green'
           break;
       default:
