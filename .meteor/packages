@@ -41,3 +41,5 @@ yogiben:autoform-file
 momentjs:moment
 semantic:ui-tab
 semantic:ui-statistic
+semantic:ui-modal
+semantic:ui-dimmer

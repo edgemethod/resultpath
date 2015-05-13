@@ -109,23 +109,45 @@
 
 
                 {{#if statusIsNot 'complete' }}
-                <div class="ui tiny button basic green compact add-time top right floated dropdown top right pointing">
-                    <i class="plus icon"></i>
+
+                <div class="ui modal small horizontal flip add-activity-modal">
+                  <i class="close icon"></i>
+                  <div class="header">
                     Log Activity
-                    <div class="menu inverted">
-                      <div class="header">
-                        <i class="plus icon"></i>
-                        Add Activity
-                      </div>
-                      <div class="ui mini labeled input activity">
-                        <div class="ui label mini">Description</div>
-                        <input type="text" size="20" class="description">
-                        <div class="ui label mini">Hours</div>
-                        <input type="text" size="2" class="value">
-                        &nbsp;
-                        <button class="ui input button compact green" data-action="add-activity">ADD</button>
+                  </div>
+                  <div class="content">
+
+                    <div class="ui form ">
+                      <div class="two fields">
+                        <div class="twelve wide field">
+                          <label>Brief Description/Notes*</label>
+                          <input placeholder="" type="text" name="description" >
+                        </div>
+                        <div class="four wide field">
+                          <label>Hours Spent*</label>
+                          <input placeholder="" type="text" name="value" >
+                        </div>
                       </div>
                     </div>
+
+                  </div>
+                  <div class="actions">
+                    <div class="ui black button">
+                      Cancel
+                    </div>
+                    <div class="ui positive right labeled icon button" data-action="add-activity">
+                      Add Activity
+                      <i class="checkmark icon"></i>
+                    </div>
+                  </div>
+                </div>
+
+
+                  <div class="ui tiny button basic green compact right floated log-activity">
+
+                    <i class="plus icon"></i>
+                    Log Activity
+
                 </div>
                 {{else}}
                   {{#if showLog }}

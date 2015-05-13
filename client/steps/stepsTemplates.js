@@ -4,22 +4,6 @@ Template._stepsCard.rendered = function() {
 };
 
 Template._stepsCard.events({
-  'click [data-action=add-activity]': function (event, template) {
-    event.preventDefault();
-
-    //console.log(this);
-    $value = $(event.target).parents('.menu').find('input.value');
-    $description = $(event.target).parents('.menu').find('input.description');
-
-
-    if ($value.val() &&  Number($value.val()) && $description.val()) {
-      Meteor.call('Changes.addResult', Router.current().params._id, 'steps.' + this.index + '.activities', $description.val(), Number($value.val()), function(error, result) {
-        $value.val('');
-        $(event.target).parents('.dropdown').dropdown('hide');
-      });
-    }
-
-  },
   'click [data-set-status]': function (event, template) {
     event.preventDefault();
 
@@ -68,6 +52,36 @@ Template._stepsCard.events({
   'click [data-action=hide-log]': function (event, template) {
     Session.set("showLog", null)
   },
+  'click .log-activity': function (event, template) {
+    var $modal = $('.add-activity-modal');
+    var $index = this.index;
+
+    $(".add-activity-modal").modal({
+      detachable: false,
+      onApprove: function() {
+
+        $value = $modal.find('input[name="value"]');
+        $description = $modal.find('input[name="description"]');
+
+
+
+        if ($value.val() &&  Number($value.val()) && $description.val()) {
+
+
+          Meteor.call('Changes.addResult', Router.current().params._id, 'steps.' + $index + '.activities', $description.val(), Number($value.val()), function(error, result) {
+
+            $value.val('');
+            $description.val('');
+          });
+        } else {
+          return false
+        }
+
+
+      }
+    }).modal('show')
+
+  }
 
 });
 
@@ -76,7 +90,6 @@ Template._add_step.events({
   'click [data-action=add-step]': function (event, template) {
     event.preventDefault();
 
-    //console.log(this);
     $value = $(event.target).parents('.input').find('input');
 
     if ($value.val()) {
