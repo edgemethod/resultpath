@@ -45,6 +45,7 @@ Meteor.methods({
   },
   'Changes.addComment': function (_id, arrayIndex, commentBody) {
     var change = Changes.findOne(_id);
+    var owner = Meteor.users.findOne(change.userId);
 
     // stop if not logged in, or this user isn't a member of the change
 
@@ -67,9 +68,21 @@ Meteor.methods({
 
       data[colIndex] = theComment;
 
+      this.unblock();
+
       Changes.update({ _id: _id}, {
         $addToSet: data
-      }, {});
+      }, {}, function() {
+
+        Email.send({
+          to: owner.emails[0],
+          from: "no-reply@resultpath.com",
+          "reply-to": Meteor.user().emails[0],
+          subject: change.title + ": new comment from " + Meteor.user().profile.given_name,
+          text: commentBody
+        });
+
+      });
 
     }
 
