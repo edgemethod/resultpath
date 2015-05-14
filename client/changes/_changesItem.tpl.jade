@@ -1,0 +1,20 @@
+a.ui.fluid.card.changes-index-item(href='/change/{{_id}}')
+  with imageObject
+    .image
+      img(src='{{url}}')
+  .content
+    .header {{title}}
+    .description
+    .meta
+      span.url {{url}}
+  .extra.content
+    span.right.floated
+      .ui.label.tag.mini {{status}}
+    small
+      strong
+        i.comment.icon
+        if comments.length
+          | {{comments.length}}
+        else
+          | No
+        |  Comments

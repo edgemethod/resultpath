@@ -1,0 +1,53 @@
+.nine.wide.column.top-title-column
+  h1.ui.basic.header.top-title
+    {{title}}
+    with url
+      a.sub.header(href='{{this}}')
+        i.icon.globe
+        {{this}}
+.five.wide.column.top-actions
+  .ui.label.large.tag.dropdown.icon(class="{{statusColor}}")
+    +_status_dropdown
+  a.ui.button.compact.primary(href='/change/{{_id}}/edit')
+    | Edit
+.nine.wide.column
+  with imageObject
+    .ui.fitted.image.change-image
+      img(src='{{url}}')
+  if details
+    .ui.text.change-details-text
+      {{{details}}}
+  if comments.length
+    .ui.comments(style='max-width:1200px')
+      each addIndex comments
+        +_comment
+  else
+    .ui.segment.secondary
+      Hi {{me.profile.given_name}}, There aren't any comments yet.  Care to kick off the conversation?
+  form#post-comment.ui.reply.form
+    .field
+      textarea#comment-body
+    .ui.primary.button.compact(data-action='post-comment')
+      Post Comment
+.five.wide.column
+  .ui.fluid.two.item.large.tabular.top.attached.secondary.menu.actions-vs-results
+    a.item(data-tab='actions' class="{{activeTab 'actions' }}") Actions
+    a.item(data-tab='results' class="{{activeTab 'results' }}") Results
+  .ui.bottom.attached.basic.tab(data-tab='actions' class="{{activeTab 'actions' }}")
+    .ui.cards
+      if steps.length
+        each addIndex steps
+          +_stepsCard
+        .ui.basic.horizontal.segment(style='margin-top: 0.75rem')
+          +_add_step
+      else
+        +_stepsBlank
+  .ui.bottom.attached.tab(data-tab='results' class="{{activeTab 'results' }}")
+    .ui.cards
+      if goals.length
+        each addIndex goals
+          +_goalsCard
+        .ui.basic.horizontal.segment(style='margin-top: 0.75rem')
+          +_add_goal
+      else
+        +_goalsBlank

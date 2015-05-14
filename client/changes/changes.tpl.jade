@@ -1,0 +1,25 @@
+.fourteen.wide.column
+  h1.ui.basic.header.top-title
+    a.ui.button.compact.primary.right.floated(href='/changes/new')
+      i.plus.icon
+      |       Add Idea
+    |     {{status}}
+
+.fourteen.wide.column
+  if this.count
+    .ui.four.stackable.doubling.cards
+      each this
+        +_changesItem
+  else
+    .ui.segment.secondary
+      b Hi {{me.profile.given_name}},
+      if routeNameIs
+        | It doesn&apos;t look like there are any ideas here yet.
+        br
+        br
+        strong
+          a(href='/changes/new') Submit the first!
+      else
+        There's nothing here yet. Have you got a great idea?
+        a(href='/changes/new')
+          | Propose It!
