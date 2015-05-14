@@ -41,7 +41,8 @@ Meteor.publishComposite('change',  function(_id) {
       {
         find: function(change) {
           var interactorIds = [change.userId];
-          interactorIds.concat( _.map(change.hours, function(h) {h.userId}) );
+          interactorIds.concat( _.map(change.activities, function(result) {result.userId}) );
+          interactorIds.concat( _.map(change.results, function(result) {result.userId}) );
           interactorIds.concat(_.map(change.comments, function(c) {c.userId}) );
           return Meteor.users.find({_id: { $in: interactorIds }});
         }
